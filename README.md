@@ -100,8 +100,8 @@ val socket: AbstractDevice = Socket(baseStation, name = "", id = "")
 </details>
 
 <hr>
-###After you have your components, the following methods are available to you
-per [AbstractDevice](src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractDevice.kt):
+
+#### After you have created your components, the following methods are available in the [AbstractDevice](src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractDevice.kt) class:
 
 ```kotlin
 val baseStation: AbstractBaseStation = BaseStation(name = "", serialNumber = "", ipAddress = "")
