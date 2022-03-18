@@ -14,7 +14,7 @@ There are 2 basic ways this library can be included.
 Define your base station:
 
 - A class must inherit
-  from [AbstractBaseStation](lib/src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractBaseStation.kt).
+  from [AbstractBaseStation](src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractBaseStation.kt).
 
 ```kotlin
 class BaseStation : AbstractBaseStation()
@@ -22,7 +22,7 @@ class BaseStation : AbstractBaseStation()
 
 - After you have done that, you still have to enter the data for the base station. To do this, you simply have to
   override the variable provided for this purpose with an
-  instantiated [BaseStationData](lib/src/main/kotlin/de/nicostraube/casacontrol/lib/components/data/Data.kt') class.
+  instantiated [BaseStationData](src/main/kotlin/de/nicostraube/casacontrol/lib/components/data/Data.kt') class.
 
 ```kotlin
 override val stationData: BaseStationData
@@ -33,8 +33,8 @@ override val stationData: BaseStationData
 Next, define your device - a base station must already be defined for this:
 
 - A class must inherit
-  from [AbstractDevice](lib/src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractDevice.kt). In addition,
-  the base station must be passed in the constructor and this must then be passed to the abstract device.
+  from [AbstractDevice](src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractDevice.kt). In addition, the
+  base station must be passed in the constructor and this must then be passed to the abstract device.
 
 ```kotlin
 class Socket(baseStation: AbstractBaseStation) : AbstractDevice(baseStation)
@@ -42,17 +42,23 @@ class Socket(baseStation: AbstractBaseStation) : AbstractDevice(baseStation)
 
 - After you have done that, as with the base station, the data must be given. So you have to overwrite the given
   variable with the instantiated
-  class [DeviceData](lib/src/main/kotlin/de/nicostraube/casacontrol/lib/components/data/Data.kt).
+  class [DeviceData](src/main/kotlin/de/nicostraube/casacontrol/lib/components/data/Data.kt).
 
 ```kotlin
 override val deviceData: DeviceData
     get() = DeviceData(baseStation, name = "", id = "")
 ```
 
-</details>
-
 <br>
+The integration of the classes you just created should look something like this:
 
+```kotlin
+val baseStation: AbstractBaseStation = BaseStation()
+val socket: AbstractDevice = Socket(baseStation)
+```
+
+</details>
+<br>
 <details><summary><b>Method 2 - Each component is instantiated from the same class and data is passed in the constructor.</b></summary>
 
 The basis of your base stations:
@@ -83,4 +89,25 @@ class Socket(
 }
 ```
 
+<br>
+The integration of the classes you just created should look something like this:
+
+```kotlin
+val baseStation: AbstractBaseStation = BaseStation(name = "", serialNumber = "", ipAddress = "")
+val socket: AbstractDevice = Socket(baseStation, name = "", id = "")
+```
+
 </details>
+
+<br>
+<hr>
+###After you have your components, the following methods are available to you
+per [AbstractDevice](src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractDevice.kt):
+
+```kotlin
+val baseStation: AbstractBaseStation = BaseStation(name = "", serialNumber = "", ipAddress = "")
+val socket: AbstractDevice = Socket(baseStation, name = "", id = "")
+
+socket.turnOnSync() // This will turn on the device synchronously if present.
+socket.turnOffSync() // This will turn off the device synchronously if present.
+```
