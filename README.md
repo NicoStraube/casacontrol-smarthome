@@ -99,7 +99,6 @@ val socket: AbstractDevice = Socket(baseStation, name = "", id = "")
 
 </details>
 
-<br>
 <hr>
 ###After you have your components, the following methods are available to you
 per [AbstractDevice](src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractDevice.kt):
