@@ -14,7 +14,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
 
-    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.6.0")
+    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.8.2")
     testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine")
 }
 
