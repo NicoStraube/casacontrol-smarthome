@@ -5,5 +5,5 @@ import de.nicostraube.casacontrol.lib.components.data.BaseStationData
 
 class AbstractBaseStationImpl(
     override val stationData: BaseStationData,
-    override val objectId: String,
+    override val componentId: String,
 ) : AbstractBaseStation()

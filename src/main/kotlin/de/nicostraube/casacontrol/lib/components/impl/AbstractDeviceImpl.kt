@@ -5,5 +5,5 @@ import de.nicostraube.casacontrol.lib.components.data.DeviceData
 
 class AbstractDeviceImpl(
     override val deviceData: DeviceData,
-    override val objectId: String,
+    override val componentId: String,
 ) : AbstractDevice(deviceData.baseStation)

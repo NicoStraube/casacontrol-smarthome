@@ -6,7 +6,7 @@ import de.nicostraube.casacontrol.lib.registry.IRegisterable
 import java.net.http.HttpResponse
 import java.net.http.HttpResponse.BodyHandlers
 
-abstract class AbstractDevice(val baseStation: AbstractBaseStation) : IRegisterable {
+abstract class AbstractDevice(protected val baseStation: AbstractBaseStation) : IRegisterable {
 
     abstract val deviceData: DeviceData
 
