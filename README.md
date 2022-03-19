@@ -3,6 +3,8 @@
 This simple library makes it easy to switch the sockets of the CasaControl smart home on and off. The library works
 synchronously.
 
+<b>An implementation of the radiator thermostats is not planned, but I might devote myself to that on request.</b>
+
 There are 2 basic ways this library can be included.
 
 1. Either a class is created for each component in which it gets its properties directly,
