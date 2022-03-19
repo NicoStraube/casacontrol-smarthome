@@ -105,12 +105,16 @@ val device: AbstractDevice = AbstractDeviceImpl(
 ```
 
 </details>
+<br>
 
-<hr>
-
+<details><summary><b>The methods to interact</b></summary>
+   
 #### After you have created your components, your have the following methods per [AbstractDevice](src/main/kotlin/de/nicostraube/casacontrol/lib/components/AbstractDevice.kt) class:
 
 ```kotlin
 AbstractDevice#turnOnSync() // This will turn on the device synchronously if present.
 AbstractDevice#turnOffSync() // This will turn off the device synchronously if present.
 ```
+   
+</details>
+<hr>
