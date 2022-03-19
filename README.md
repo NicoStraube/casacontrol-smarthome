@@ -40,7 +40,7 @@ class BaseStation : AbstractBaseStation()
 override val stationData: BaseStationData
     get() = BaseStationData(name = "", serialNumber = "", ipAddress = "")
 override val componentId: String
-    get() = "" // For example this.stationData.name
+    get() = "" // For example stationData.name
 ```
 
 <br>
@@ -62,7 +62,7 @@ class Socket(baseStation: AbstractBaseStation) : AbstractDevice(baseStation)
 override val deviceData: DeviceData
     get() = DeviceData(baseStation, name = "", id = "")
 override val componentId: String
-    get() = "" // For example this.deviceData.name
+    get() = "" // For example deviceData.name
 ```
 
 <br>
