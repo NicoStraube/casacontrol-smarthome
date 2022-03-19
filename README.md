@@ -82,17 +82,26 @@ The basis of your base stations:
 ```kotlin
 val baseStation =
     AbstractBaseStationImpl(
-        BaseStationData(name = "", serialNumber = "", ipAddress = ""),
-        componendId = "")
+        BaseStationData(name = "", serialNumber = "", ipAddress = ""), componentId = "")
 ```
 
 The basis of your devices:
 
 ```kotlin
-val socket =
+val device =
     AbstractDeviceImpl(
-        DeviceData(baseStation, name = "", deviceId = ""),
-        componentId = "")
+        DeviceData(baseStation, name = "", id = ""), componentId = "")
+```
+
+<br>
+The integration of the classes should look something like this:
+
+```kotlin
+val baseStation: AbstractBaseStation = AbstractBaseStationImpl(
+    BaseStationData(name = "", serialNumber = "", ipAddress = ""), componentId = "")
+
+val device: AbstractDevice = AbstractDeviceImpl(
+    DeviceData(baseStation, name = "", id = ""), componentId = "")
 ```
 
 </details>
