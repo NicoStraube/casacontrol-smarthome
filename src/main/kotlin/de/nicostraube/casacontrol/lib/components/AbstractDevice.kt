@@ -2,10 +2,11 @@ package de.nicostraube.casacontrol.lib.components
 
 import de.nicostraube.casacontrol.lib.HttpUtils
 import de.nicostraube.casacontrol.lib.components.data.DeviceData
+import de.nicostraube.casacontrol.lib.registry.IRegisterable
 import java.net.http.HttpResponse
 import java.net.http.HttpResponse.BodyHandlers
 
-abstract class AbstractDevice(protected val baseStation: AbstractBaseStation) {
+abstract class AbstractDevice(val baseStation: AbstractBaseStation) : IRegisterable {
 
     abstract val deviceData: DeviceData
 
